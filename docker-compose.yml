@@ -20,17 +20,16 @@ services:
       - my-network
 
   # Frontend
-  #frontend:
-  ##sil  build: ./frontend/.
-  #  image: furkankayam/yigido-frontend:v1.0
-  #  container_name: frontend
+  frontend:
+    image: furkankayam/yigido-frontend:v1.1
+    container_name: frontend
   #  restart: always
-  #  ports:
-  #    - "80:5173"
-  #  depends_on:
-  #    - backend
-  #  networks:
-  #    - my-network
+    ports:
+      - "80:5173"
+    depends_on:
+      - backend
+    networks:
+      - my-network
 
   # PostgreSQL
   postgresql_db:
