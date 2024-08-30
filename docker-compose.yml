@@ -3,7 +3,7 @@ services:
 
   # Backend
   backend:
-    image: furkankayam/yigido-backend:v1.0
+    image: furkankayam/yigido-backend:v4.0
     container_name: backend
     #restart: always
     ports:
@@ -21,7 +21,7 @@ services:
 
   # Frontend
   frontend:
-    image: furkankayam/yigido-frontend:v1.1
+    image: furkankayam/yigido-frontend:v2.0
     container_name: frontend
   #  restart: always
     ports:
@@ -30,6 +30,18 @@ services:
       - backend
     networks:
       - my-network
+
+  # Mobile Frontend
+  mobile_frontend:
+    image: furkankayam/yigido-mobile-frontend:v0.1
+    container_name: mobile_frontend
+    ports:
+      - "5173:5173"
+    depends_on:
+      - backend
+    networks:
+      - my-network
+
 
   # PostgreSQL
   postgresql_db:
@@ -58,7 +70,7 @@ services:
       - ./mqtt/config:/mosquitto/config
     networks:
       - my-network
-
+      
   # Adminer
   adminer-panel:
     image: adminer:4.8.1
