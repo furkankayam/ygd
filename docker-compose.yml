@@ -21,7 +21,7 @@ services:
 
   # Frontend
   frontend:
-    image: furkankayam/yigido-frontend:v2.0
+    image: furkankayam/yigido-frontend:v3.0
     container_name: frontend
   #  restart: always
     ports:
